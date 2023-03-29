@@ -4,6 +4,41 @@ info:
     title: JSON Placeholder API
     description: See https://jsonplaceholder.typicode.com/
 paths:
+    /login:
+            post:
+                description: Login with user credentials
+                tags: ['Authentication']
+                operationId: 'loginUser'
+                requestBody:
+                    required: true
+                    content:
+                        'application/x-www-form-urlencoded':
+                            schema:
+                                type: object
+                                properties:
+                                    login:
+                                        type: string
+                responses:
+                    '200':
+                        description: Successful login
+                        content:
+                            application/json:
+                                schema:
+                                    type: object
+                                    properties:
+                                        status:
+                                            type: integer
+                                            example: 200
+                    '400':
+                        description: Invalid login credentials
+                        content:
+                            application/json:
+                                schema:
+                                    type: object
+                                    properties:
+                                        status:
+                                            type: integer
+                                            example: 400
     /posts:
         get:
             description: Returns all posts
