@@ -4,6 +4,39 @@ info:
     title: JSON Placeholder API
     description: See https://jsonplaceholder.typicode.com/
 paths:
+    /projects:
+      post:
+        description: Create a new project
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  shortName:
+                    type: string
+        responses:
+          '200':
+            description: Success
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    status:
+                      type: number
+                      const: 200
+          '400':
+            description: Bad Request
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    status:
+                      type: number
+                      const: 400
     /login:
             post:
                 description: Login with user credentials
